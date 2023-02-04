@@ -56,6 +56,5 @@ Helper functions for app.py to run, including functions such as lookup(symbol) f
 
 ### finance.db
 Contains tables to store user data in 3 tables namely: users, portfolio and history.
----
 
 The **Login** and **Logout** functions and all functions in **helpers.py** were borrowed from CS50 Pset9: Finance Distribution Code and are not my work. 
