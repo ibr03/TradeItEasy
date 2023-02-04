@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-start">Symbol</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Transaction Type</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Transaction Time</th>
+        </tr>
+    </thead>
+    <tbody>
+
+            {% for stock in stocks %}
+                {% if stock["type"] == "Sold" %}
+                    <tr class="table-danger">
+                {% else %}
+                    <tr class="table-success">
+                {% endif %}
+                        <td class="text-start">{{ stock["symbol"].upper() }}</td>
+                        <td class="text-end">{{ stock["shares"] }}</td>
+                        <td class="text-end">{{ stock["type"] }}</td>
+                        <td class="text-end">{{ stock["price"] | usd }}</td>
+                        <td class="text-end">{{ stock["time"] }}</td>
+                    </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
